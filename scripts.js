@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
     squareContainer.classList.add(`squareContainer`);
     let square = document.createElement(`div`);
     square.classList.add(`square`);
-
-    square.style.backgroundColor = rainbow();
     squareContainer.appendChild(square);
     document.body.appendChild(squareContainer);
     //Scope is import - below here elemnt must exist first in the DOM
@@ -23,10 +21,23 @@ document.addEventListener("DOMContentLoaded", function () {
     square.addEventListener(`click`, function () {
       square.style.backgroundColor = rainbow();
     });
-    for (let i = 0; i < 10; i++) {
-      //setInterval((square.style.left = i + `px`), 5000);
-      //setInterval(squareEngine(square), 1000);
-    }
+    //disp();
+    let i = 0;
+    //stimer();
+
+    while (i < 80) {
+      //setInterval(disp(), 2000);
+
+      let x = document.getElementById("sq-1").offsetLeft;
+      if (x < 800) {
+        x = x + 1;
+        //setTimeout(console.log(`timer fired`), 10);
+        // stimer();
+        document.getElementById("sq-1").style.left = x + "px"; //horizontal )
+        console.log(`After ${x}`);
+      }
+      i++;
+    } // end While
   }
   //Random RGB color generator function
   function rainbow() {
@@ -51,20 +62,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function stimer() {
+    disp();
+    my_time = setTimeout(stimer(), 1000);
+  }
+
   function disp() {
-    var step = 1; // Change this step value
-    //alert("Hello");
-    var y = document.getElementById("i1").offsetTop;
-    var x = document.getElementById("i1").offsetLeft;
-    document.getElementById("msg").innerHTML = "X: " + x + " Y : " + y;
+    let step = 1; // Change this step value
+    let y = document.getElementById("sq-1").offsetTop;
+    console.log(y);
+    let x = document.getElementById("sq-1").offsetLeft;
+    console.log(x);
+    //document.getElementById("msg").innerHTML = "X: " + x + " Y : " + y;
+
+    if (x < 100) {
+      x = x + step;
+      document.getElementById("sq-1").style.left = x + "px"; //horizontal )
+      console.log(`After ${x}`);
+      /*
     if (y < 400) {
       y = y + step;
-      document.getElementById("i1").style.top = y + "px"; // vertical movment
+      document.getElementById("sq-1").style.top = y + "px"; // vertical movment
     } else {
       if (x < 800) {
         x = x + step;
-        document.getElementById("i1").style.left = x + "px"; //horizontal move
-      }
+        document.getElementById("sq-1").style.left = x + "px"; //horizontal move
+      }*/
     }
   }
 }); //End of DOMContentLoaded
