@@ -49,10 +49,14 @@ document.addEventListener("DOMContentLoaded", function () {
       let squareDiv = document.getElementById("1"); //get sq div
       squareDiv.appendChild(sqTextDiv); //attach new div to sqdiv
       document.body.appendChild(squareDiv); //attach the lot to the DOM
-      sqTextDiv.setAttribute(`style`, `color: white`); //dosent work if othee styles used?
       sqTextDiv.setAttribute(`id`, `T${j}`);
-
-      sqTextDiv.setAttribute(`style`, `text-align: center`);
+      sqTextDiv.setAttribute(`style`, `width: .1rem`);
+      sqTextDiv.setAttribute(`style`, `height: .1rem`);
+      sqTextDiv.setAttribute(`style`, `margin: -10px`);
+      sqTextDiv.setAttribute(`style`, `padding: 7px 7px 7px 9px`);
+      sqTextDiv.setAttribute(`style`, `color: white`);
+      //sqTextDiv.setAttribute(`style`,
+      //square.style.backgroundColor = rainbow();
 
       //End create child
 
